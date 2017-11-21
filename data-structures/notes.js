@@ -21,7 +21,7 @@ LinkedList.prototype.print = function() {
     current = current.next
   }
   output += "]"
-  console.log(output);
+  console.log(output)
 }
 
 LinkedList.prototype.prepend = function(val) {
@@ -29,7 +29,7 @@ LinkedList.prototype.prepend = function(val) {
     data: val,
     next: this.head
   }
-this.head = newNode
+  this.head = newNode
 }
 
 LinkedList.prototype.append = function(val) {
@@ -37,6 +37,7 @@ LinkedList.prototype.append = function(val) {
     data: val,
     next: null
   }
+
   if (this.head === null) {
     this.head = newNode
     return
@@ -76,10 +77,12 @@ LinkedList.prototype.remove = function(val) {
   if (!this.contains(val)) {
     return
   }
+
   if (this.head.data === val) {
     this.head = this.head.next
     return
   }
+
   var current = this.head
   var prev = null
 
@@ -92,17 +95,12 @@ LinkedList.prototype.remove = function(val) {
 
 var list = new LinkedList()
 
-console.log(list.isEmpty())
-list.prepend(5)
-list.prepend(10)
-list.prepend(15)
-list.append(0)
-list.append(-5)
+list.append(5)
+list.append(10)
+list.append(15)
+list.append(20)
+list.print()
 
-list.print()
-console.log('removing 5 and 15:')
+list.remove(20)
 list.remove(5)
-list.remove(15)
 list.print()
-console.log('contains 4?:', list.contains(4));
-console.log('list size:', list.size())
