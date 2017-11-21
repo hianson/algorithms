@@ -52,10 +52,45 @@ LinkedList.prototype.prepend = function(val) {
   this.head = newNode
 }
 
+LinkedList.prototype.contains = function(val) {
+  var current = this.head
+
+  while (current !== null) {
+    if (current.data === val) {
+      return true
+    }
+    current = current.next
+  }
+  return false
+}
+
+LinkedList.prototype.remove = function(val) {
+  if (!this.contains(val)) {
+    return 'List does not contain this value.'
+  }
+  if (this.head.data === val) {
+    this.head = this.head.next
+    return
+  }
+  var prevNode = null
+  var current = this.head
+
+  while (current.data !== val) {
+    prevNode = current
+    current = current.next
+  }
+  prevNode.next = current
+
+
+}
+
 var list = new LinkedList()
 list.print()
 list.prepend(5)
+list.remove(5)
+list.remove(5)
+list.append(5)
 list.prepend(10)
-list.prepend(15)
+// list.prepend(15)
 list.print()
 // console.log(list.isEmpty())
