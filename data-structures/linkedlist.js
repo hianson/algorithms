@@ -1,3 +1,5 @@
+// super helpful thank u https://www.youtube.com/watch?v=MozZbtPyqt8
+
 function LinkedList() {
   this.head = null
 }
