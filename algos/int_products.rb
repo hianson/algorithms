@@ -18,6 +18,9 @@
 # p get_products_of_all_ints_except_at_index(arr)
 
 ######## 'double-greedy' with backwards array traversal
+# O(n) time and O(n) space
+# pass thru input array two times to avoid nested loop
+# get this solution by refactoring repeat work from the brute force method 
 
 def get_products_of_all_ints_except_at_index(arr)
   raise IndexError, 'Requires at least 2 numbers' if arr.length < 2
