@@ -40,6 +40,8 @@
 # p get_max_profit(stock_prices_yesterday)
 
 ####### handle 'negative profit' greedily:
+# O(n) time and O(1) space!!
+# keep track of a 'best answer so far', and the lowest value in array
 
 def get_max_profit(stock_prices_yesterday)
   if stock_prices_yesterday.length < 2
