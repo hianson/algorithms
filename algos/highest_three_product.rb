@@ -23,3 +23,8 @@ end
 array_of_ints = [1, 3, 6, 2, 4, 7]
 
 p product_of_highest_three(array_of_ints)
+
+######## handle negative numbers:
+# must keep track of product of highest and lowest 2
+# keep track of lowest 2 because if multiplied by another negative, it can become a greater positive number
+# keep track of highest 2 to multiply by the value in each iteration
