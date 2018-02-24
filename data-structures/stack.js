@@ -42,3 +42,44 @@ stack.push("hello")
 stack.push("hello")
 
 console.log(stack)
+
+// using string as storage:
+
+var Stack = function() {
+  this.storage = "";
+  this.delimiter = "*";
+}
+
+Stack.prototype.push = function(val) {
+  this.storage = this.storage + this.delimiter + val
+}
+
+Stack.prototype.pop = function() {
+  var lastDelimiterIndex = this.storage.lastIndexOf('*')
+  var lastItem = this.storage.slice(lastDelimiterIndex, -1)
+  this.storage = this.storage.slice(0, lastDelimiterIndex)
+
+  return lastItem
+}
+
+Stack.prototype.size = function() {
+  var size = 0
+
+  for (var i = 0; i < this.storage.length; i++) {
+    if (this.storage[i] === "*") {
+      size += 1
+    }
+  }
+  return size
+}
+
+var myWeeklyMenu = new Stack();
+
+myWeeklyMenu.push("RedBeans");
+myWeeklyMenu.push("IceCreams");
+myWeeklyMenu.push("LilacDreams")
+// myWeeklyMenu.pop()
+console.log(myWeeklyMenu.size())
+
+
+console.log(myWeeklyMenu.storage)
