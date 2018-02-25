@@ -83,3 +83,44 @@ console.log(myWeeklyMenu.size())
 
 
 console.log(myWeeklyMenu.storage)
+
+//
+
+function Stack(capacity) {
+  this.capacity = capacity || Infinity;
+  this.storage = {};
+  this.count = 0;
+}
+
+Stack.prototype.push = function(val) {
+  if (this.count >= this.capacity) {
+    console.log('Stack overflow.')
+  }
+
+  this.storage[this.count++] = val
+  return this.count
+}
+
+Stack.prototype.pop = function() {
+  var popped = this.storage[--this.count]
+
+  delete this.storage[--this.count]
+  if (this.count < 0) {
+    this.count = 0
+  }
+  return popped
+}
+
+Stack.prototype.peek = function() {
+  return this.storage[this.count-1]
+}
+
+var stack = new Stack()
+
+stack.push('hello')
+stack.pop()
+stack.push('world')
+stack.push('llama')
+console.log(stack.peek())
+
+console.log(stack)
