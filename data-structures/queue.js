@@ -28,3 +28,33 @@ console.log(queue.enqueue(2))
 console.log(queue.enqueue(3))
 console.log(queue.enqueue(4))
 console.log(queue.dequeue())
+
+
+// Queue using an object as storage:
+
+function Queue() {
+  this.storage = {};
+  this.head = 0;
+  this.tail = 0;
+}
+
+Queue.prototype.enqueue = function(val) {
+  this.storage[this.tail++] = val
+}
+
+Queue.prototype.dequeue = function() {
+  var element = this.storage[this.head];
+  delete this.storage[this.head];
+  if (this.head < this.tail) {
+    this.head++
+  }
+  return element
+}
+
+Queue.prototype.count = function() {
+  return this.tail - this.head;
+}
+
+Queue.prototype.peek = function() {
+  return this.storage[this.head]
+}
