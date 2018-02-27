@@ -18,3 +18,27 @@ var fibonacci = function(n) {
 fibonacci(8)
 
 // Recursive:
+var recursiveFibonacci = function(n) {
+  if (n === 0 || n === 1) {
+    return n
+  }
+  return recursiveFibonacci(n - 1) + recursiveFibonacci(n - 2)
+}
+
+recursiveFibonacci(8)
+
+// Recursive w/ memoization:
+var recursiveFibonacci = function(n, memo) {
+  var memo = memo || {}
+
+  if (memo[n]) {
+    return memo[n]
+  }
+  if (n === 0 || n === 1) {
+    return n
+  }
+  var meme = recursiveFibonacci(n - 1) + recursiveFibonacci(n - 2)
+  return memo[n] = meme
+}
+
+recursiveFibonacci(8)
