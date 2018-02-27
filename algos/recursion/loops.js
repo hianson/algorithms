@@ -22,10 +22,11 @@ recursiveLoop(4)
 //3.Write a function 'exponent' that takes two arguments base, and expo, uses a while loop to return the exponenet value of the base.
 
 var exponent = function(base, expo) {
-  for (var i = expo; i > 1; i--) {
-    base *= base
+  var sum = base
+  for (var i = 1; i < expo; i++) {
+    sum *= base
   }
-  return base
+  return sum
 }
 
 exponent(3, 2)
@@ -45,7 +46,7 @@ recursiveExponent(3, 2)
 
 //iterative:
 var multiplier = function(arr, num) {
-  for (var i = 0; i < arr.length; i ++) {
+  for (var i = 0; i < arr.length; i++) {
     arr[i] = arr[i] * num
   }
   return arr
