@@ -127,3 +127,20 @@ recursiveMultiplier([3, 5, 2, 4], 2)
 
 
 //6. Write a function 'recursiveReverse' that takes an array and uses recursion to return its contents in reverse
+
+var recursiveReverse = function(arr) {
+  var reversedArr = []
+  var reverseArr = function(array) {
+    if (arr.length === 0) {
+      return reversedArr
+    }
+    var last = arr.pop()
+    reversedArr.push(last)
+    reverseArr(arr)
+  }
+
+  reverseArr(arr)
+  return reversedArr
+}
+
+recursiveReverse([1, 2, 3, 4, 5])
