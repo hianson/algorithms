@@ -1,8 +1,10 @@
-fibonacci = (n, memo={}) => {
-  if (n <= 2) return 1
-  if (memo[n]) {
-    return memo[n]
-  } else {
-    return fibonacci(n - 1) + fibonacci (n - 2)
-  }
+function fibonacci(num, memo) {
+  memo = memo || {};
+
+  if (memo[num]) return memo[num];
+  if (num <= 2) return 1;
+
+  return memo[num] = fibonacci(num - 1, memo) + fibonacci(num - 2, memo);
 }
+
+fibonacci(100)
